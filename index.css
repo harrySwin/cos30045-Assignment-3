@@ -277,7 +277,7 @@ a:hover {
 /* Style for the startButton */
 #startButton {
     animation: hoverUpDown 2s ease-in-out infinite; /* Slowed down the animation */
-    background-color: #28a745; /* Changed to green */
+    background-color: #007bff; /* Changed to green */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -291,7 +291,7 @@ a:hover {
 
 /* Style for the startButton when hovered */
 #startButton:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #0056b3; /* Darker green on hover */
     transform: scale(1.05); /* Slightly scale up the button on hover */
     animation: none; /* Stop the hover animation on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
@@ -300,6 +300,6 @@ a:hover {
 /* Style for the startButton when focused (optional) */
 #startButton:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Focus shadow */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus shadow */
 }
 
