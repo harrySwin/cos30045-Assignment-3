@@ -1,199 +1,143 @@
+/* Full height section based on viewport height minus navbar */
 .full-height {
 	height: calc(100vh - 56px); 
 }
 		
+/* Max height for columns, considering navbar height */
 .col-max-height {
 	max-height: calc(100vh - 56px - 5px);
 	overflow: auto; 
 }
 
+/* Importing fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:wght@700&display=swap');
 
+/* Body Text Styling, scaling based on root font size */
 .body-text {
-	font-family: 'Roboto', sans-serif; 
+	font-family: 'Roboto', sans-serif;
 	color: #343a40; 
-	font-size: 16px; 
+	font-size: 1rem; /* Uses rem for scalable font sizes */
 	line-height: 1.5; 
 }
 
+/* Heading Styling with scaling */
 .title-part1 {
 	font-family: 'Montserrat', sans-serif;
 	color: #6c757d; 
-	font-size: 2rem;
-}
-.title-part2 {
-	font-family: 'Playfair Display', serif;
-	color: #007bff; 
-	font-size: 3rem; 
-	font-weight: 700; 
-}
-		
-@keyframes swipeReveal {
-	from {
-		clip-path: inset(0 100% 0 0); 
-	}
-	to {
-		clip-path: inset(0 0 0 0);
-	}
+	font-size: 2rem; /* Approx. 32px on standard screens */
+	font-size: calc(1.5rem + 1vw); /* Scales based on viewport width */
 }
 
+.title-part2 {
+	font-family: 'Playfair Display', serif;
+	color: #007bff;
+	font-size: 3rem; /* Approx. 48px on standard screens */
+	font-size: calc(2.5rem + 1vw); /* Scales up on larger screens */
+	font-weight: 700; 
+}
+
+/* Scaling the point size based on viewport */
 .point {
     position: absolute;
-	width: 60px; /* Size for the point container */
-	height: 60px; /* Size for the point container */
+	width: calc(50px + 1vw); /* Scales point size based on screen width */
+	height: calc(50px + 1vw); 
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	text-decoration: none; /* Remove underline from links */
-	color: inherit; /* Inherit color from parent element */
-	transition: transform 0.5s, background-color 0.5s; /* Slow down transition effects */
-	}
+	text-decoration: none;
+	color: inherit; 
+	transition: transform 0.5s, background-color 0.5s;
+}
 
-/* Outer circle styling */
+/* Outer circle size relative to point size */
 .outer-circle {
 	position: absolute;
-	width: 100%; /* Same as the point container */
-	height: 100%; /* Same as the point container */
-	border-radius: 50%; /* Make it circular */
-	border: 3px solid blue; /* Outer circle border color when not hovered */
-	background-color: transparent; /* Transparent background */
-	z-index: 1; /* Place outer circle behind inner circle */
-	transition: border-color 0.5s; /* Slow down border color change */
+	width: 100%; 
+	height: 100%;
+	border-radius: 50%;
+	border: 3px solid blue; 
+	background-color: transparent;
+	z-index: 1;
+	transition: border-color 0.5s;
 }
 
-/* Inner circle styling */
+/* Inner circle size relative to point size */
 .inner-circle {
     position: absolute;
-    width: 40%; /* Smaller than outer circle */
-    height: 40%; /* Smaller than outer circle */
-    border-radius: 50%; /* Make it circular */
-    border: 4px solid green; /* Inner circle border color when not hovered */
-    background-color: blue; /* Inner circle color when not hovered */
-    z-index: 2; /* Place inner circle above outer circle */
-    transition: background-color 0.5s, border-color 0.5s; /* Slow down color changes */
+    width: 40%; 
+    height: 40%; 
+    border-radius: 50%;
+    border: 4px solid green; 
+    background-color: blue;
+    z-index: 2;
+    transition: background-color 0.5s, border-color 0.5s;
 }
 
-/* Hover effect for the point */
+/* Hover effect scaling point */
 .point:hover {
-    transform: scale(1.2); /* Grow the point on hover */
+    transform: scale(1.2); 
 }
 
-/* Hover effect for the outer circle */
+/* Hover effects for the circles */
 .point:hover .outer-circle {
-    border-color: red; /* Change outer circle border color on hover */
+    border-color: red; 
 }
-
-/* Hover effect for the inner circle */
 .point:hover .inner-circle {
-    background-color: red; /* Change inner circle color on hover */
-    border-color: darkred; /* Change inner circle border color on hover */
+    background-color: red;
+    border-color: darkred; 
 }
 
-/* Point Label Styling */
+/* Point label styling, scales based on viewport */
 .point-label {
     position: absolute;
-    background-color: blue; /* Initial color matching the point's color */
+    background-color: blue;
     color: white;
-    padding: 2px 6px; /* Adjust padding for better spacing */
+    padding: 2px 6px;
     border-radius: 3px;
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat or any chosen font */
-    text-transform: uppercase; /* Ensure all text is in uppercase */
-    font-weight: 700; /* Bold weight for better visibility */
-    font-size: 14px; /* Adjust font size as needed */
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: calc(12px + 0.5vw); /* Scales with screen size */
     white-space: nowrap;
-    overflow: hidden; /* Hide overflow to maintain the clipping effect */
-    transform: translateY(-50%); /* Center vertically relative to the point */
+    overflow: hidden;
+    transform: translateY(-50%);
     left: 95%;
-    top: 50%; /* Center vertically next to the point */
-    clip-path: inset(0 100% 0 0); /* Initially clip the label fully to the right */
-    transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
-    opacity: 0; /* Initially hidden */
-}
-
-/* Show label on hover */
-.point:hover .point-label {
-    display: block; /* Show label on hover */
-    background-color: red; /* Match background color with point */
-    transform: translateY(-50%) scale(1); /* Ensure label is positioned and scaled correctly */
-    clip-path: inset(0 0 0 0); /* Reveal label on hover */
-    opacity: 1; /* Ensure the label is fully opaque */
-    animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
-}
-/* Initial hidden state */
-.fade-in {
+    top: 50%;
+    clip-path: inset(0 100% 0 0);
+    transition: background-color 0.3s, opacity 0.3s;
     opacity: 0;
-    duration: 5000;
-    transition: opacity 1s ease-in-out;
 }
 
-/* Visible state */
-.fade-in.visible {
+/* Show label on hover with swipe effect */
+.point:hover .point-label {
+    display: block;
+    background-color: red;
+    transform: translateY(-50%) scale(1);
+    clip-path: inset(0 0 0 0);
     opacity: 1;
+    animation: swipeReveal 0.5s forwards;
 }
-/* Additional class for simulating hover effect */
+
+/* Scale effect for higher resolution */
 .simulate-hover .point {
-    transform: scale(1.2); /* Grow the point on hover */
-}
-/* Additional class for simulating hover effect */
-.simulate-hover {
-    transform: scale(1.2); /* Grow the point on hover */
+    transform: scale(1.2); 
 }
 
-.simulate-hover .outer-circle {
-    border-color: red; /* Change outer circle border color on hover */
-}
-
-.simulate-hover .inner-circle {
-    background-color: red; /* Change inner circle background color on hover */
-    border-color: darkred; /* Change inner circle border color on hover */
-}
-
-/* Point Label Styling */
-.point-label {
-    position: absolute;
-    background-color: blue; /* Initial color matching the point's color */
-    color: white;
-    padding: 2px 6px; /* Adjust padding for better spacing */
-    border-radius: 3px;
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat or any chosen font */
-    text-transform: uppercase; /* Ensure all text is in uppercase */
-    font-weight: 700; /* Bold weight for better visibility */
-    font-size: 14px; /* Adjust font size as needed */
-    white-space: nowrap;
-    overflow: hidden; /* Hide overflow to maintain the clipping effect */
-    transform: translateY(-50%); /* Center vertically relative to the point */
-    left: 95%;
-    top: 50%; /* Center vertically next to the point */
-    clip-path: inset(0 100% 0 0); /* Initially clip the label fully to the right */
-    transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
-    opacity: 0; /* Initially hidden */
-}
-
-/* Show label on hover */
-.simulate-hover .point-label {
-    display: block; /* Show label on hover */
-    background-color: red; /* Match background color with point */
-    transform: translateY(-50%) scale(1); /* Ensure label is positioned and scaled correctly */
-    clip-path: inset(0 0 0 0); /* Reveal label on hover */
-    opacity: 1; /* Ensure the label is fully opaque */
-    animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
-}
-a:hover {
-    color: red;
-}
+/* Question emphasis styling */
 .key-question {
     font-weight: bold;
     font-style: italic;
-    color: #007bff; /* Bright blue for emphasis */
-    font-size: 1.2rem; /* Slightly larger font size */
+    color: #007bff;
+    font-size: calc(1rem + 0.5vw); /* Scales based on viewport */
 }
-/* Footnote styling */
+
+/* Footnote styling for lower prominence */
 .footnote {
-    font-family: 'Roboto', sans-serif; /* Simple and readable font */
-    font-size: 12px; /* Smaller size for footnotes */
-    color: #6c757d; /* Muted gray color for less prominence */
+    font-family: 'Roboto', sans-serif; 
+    font-size: calc(10px + 0.3vw); /* Scales with screen size */
+    color: #6c757d; 
     text-align: left;
-    margin-top: 10px; /* Space above the footnote */
+    margin-top: 10px; 
     text-align: center;
 }
