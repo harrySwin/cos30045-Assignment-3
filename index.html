@@ -8,149 +8,7 @@
 	
 	<!--Bootstrap-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-	<style>
-		/* Adjust the height of sections to account for sticky navbar */
-		.full-height {
-			height: calc(100vh - 56px); /* 56px is the typical height of the Bootstrap navbar */
-		}
-		/* Adjust the max-height of the column to account for the navbar and margin */
-		.col-max-height {
-			max-height: calc(100vh - 56px - 5px); /* 56px is the typical height of the navbar, 5px is the margin */
-			overflow: auto; /* Add this to handle content overflow if needed */
-		}
-		/* Importing fonts from Google Fonts */
-		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
-		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:wght@700&display=swap');
-
-		/* Body Text Styling */
-		.body-text {
-			font-family: 'Roboto', sans-serif; /* or 'Open Sans' */
-			color: #343a40; /* Dark gray for good readability */
-			font-size: 16px; /* Standard font size for body text */
-			line-height: 1.5; /* Improves readability */
-		}
-
-		/* Heading Styling */
-		.title-part1 {
-			font-family: 'Montserrat', sans-serif;
-			color: #6c757d; /* Light gray for "What is an" */
-			font-size: 2rem; /* Approximately 32px */
-		}
-
-		.title-part2 {
-			font-family: 'Playfair Display', serif;
-			color: #007bff; /* Bright blue for "old population" */
-			font-size: 3rem; /* Approximately 48px */
-			font-weight: 700; /* Bold weight */
-		}
-		/* Keyframes for swipe animation */
-		@keyframes swipeReveal {
-			from {
-				clip-path: inset(0 100% 0 0); /* Start with the label fully clipped */
-			}
-			to {
-				clip-path: inset(0 0 0 0); /* End with the label fully revealed */
-			}
-		}
-		/* Hover effect for the point */
-		.point {
-			position: absolute;
-			width: 60px; /* Size for the point container */
-			height: 60px; /* Size for the point container */
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			text-decoration: none; /* Remove underline from links */
-			color: inherit; /* Inherit color from parent element */
-			transition: transform 0.5s, background-color 0.5s; /* Slow down transition effects */
-		}
-
-		/* Outer circle styling */
-		.outer-circle {
-			position: absolute;
-			width: 100%; /* Same as the point container */
-			height: 100%; /* Same as the point container */
-			border-radius: 50%; /* Make it circular */
-			border: 3px solid blue; /* Outer circle border color when not hovered */
-			background-color: transparent; /* Transparent background */
-			z-index: 1; /* Place outer circle behind inner circle */
-			transition: border-color 0.5s; /* Slow down border color change */
-		}
-
-		/* Inner circle styling */
-		.inner-circle {
-			position: absolute;
-			width: 40%; /* Smaller than outer circle */
-			height: 40%; /* Smaller than outer circle */
-			border-radius: 50%; /* Make it circular */
-			border: 4px solid green; /* Inner circle border color when not hovered */
-			background-color: blue; /* Inner circle color when not hovered */
-			z-index: 2; /* Place inner circle above outer circle */
-			transition: background-color 0.5s, border-color 0.5s; /* Slow down color changes */
-		}
-
-		/* Hover effect for the point */
-		.point:hover {
-			transform: scale(1.2); /* Grow the point on hover */
-		}
-
-		/* Hover effect for the outer circle */
-		.point:hover .outer-circle {
-			border-color: red; /* Change outer circle border color on hover */
-		}
-
-		/* Hover effect for the inner circle */
-		.point:hover .inner-circle {
-			background-color: red; /* Change inner circle color on hover */
-			border-color: darkred; /* Change inner circle border color on hover */
-		}
-
-		/* Point Label Styling */
-		.point-label {
-			position: absolute;
-			background-color: blue; /* Initial color matching the point's color */
-			color: white;
-			padding: 2px 6px; /* Adjust padding for better spacing */
-			border-radius: 3px;
-			font-family: 'Montserrat', sans-serif; /* Use Montserrat or any chosen font */
-			text-transform: uppercase; /* Ensure all text is in uppercase */
-			font-weight: 700; /* Bold weight for better visibility */
-			font-size: 14px; /* Adjust font size as needed */
-			white-space: nowrap;
-			overflow: hidden; /* Hide overflow to maintain the clipping effect */
-			transform: translateY(-50%); /* Center vertically relative to the point */
-			left: 95%;
-			top: 50%; /* Center vertically next to the point */
-			clip-path: inset(0 100% 0 0); /* Initially clip the label fully to the right */
-			transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
-			opacity: 0; /* Initially hidden */
-		}
-
-		/* Show label on hover */
-		.point:hover .point-label {
-			display: block; /* Show label on hover */
-			background-color: red; /* Match background color with point */
-			transform: translateY(-50%) scale(1); /* Ensure label is positioned and scaled correctly */
-			clip-path: inset(0 0 0 0); /* Reveal label on hover */
-			opacity: 1; /* Ensure the label is fully opaque */
-			animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
-		}
-		/* Initial hidden state */
-		.fade-in {
-			opacity: 0;
-			duration: 5000;
-			transition: opacity 1s ease-in-out;
-		}
-
-		/* Visible state */
-		.fade-in.visible {
-			opacity: 1;
-		}
-
-
-
-	</style>
+	<link href="index.css" rel="stylesheet">
 </head>
 <body>
 	<!--Navigation-->
@@ -174,7 +32,7 @@
 	<!--Content-->
 	<main>
 		<!-- Hero Section -->
-		<div class="container-fluid full-height d-flex align-items-center justify-content-center border">
+		<div class="container-fluid full-height d-flex align-items-center justify-content-center">
 			<div class="text-center">
 				<h1 class="display-4">The Economic Burden of an Aging Population</h1>
 				<p class="lead">An Interactive Exploration of Demographic Shifts and Healthcare Costs</p>
@@ -182,28 +40,34 @@
 		</div>
 		
 		<!-- First Question Section -->
-		<div class="container-fluid full-height d-flex border">
+		<div class="container-fluid full-height d-flex">
 			<div class="container text-center">
 				<div class="row h-100">
-					<div class="col col-max-height text-center border d-flex flex-column">
+					<div class="col col-max-height text-center d-flex flex-column">
 						<h1 class="title-part1 mt-5 fade-in">WHAT IS AN </h1>
 						<h1 class="title-part2 fade-in"><strong>OLD POPULATION</strong>?</h1>
-						<p class="body-text fade-in">Hello World</p>
+						<div class="fade-in">
+							<p class="body-text">The OECD identifies the <em>"Elderly population [as] the share of the population aged 65 and over".</em> Countries are considered to have old populations if their elderly population is increasing at a faster rate than their total population. </p>
+							<p class="body-text">Let us look to the island nation of <strong>Japan</strong> for a glimpse of this demographic shift. Japan's <a href="#" id="link1">Population over 65</a> as of 2022 OECD <em>Elderly Population</em> statistics is 29% of its population, compared to the OECD average of just 17.96%, and to OECD countries with younger populations having a population over 65 as low as 8% in the case of Mexico!</p>
+							<p class="body-text"><span class="key-question">So what causes an old population?</span><br> Countries with old or ageing populations are expereincing a bitter-sweet combination of increasing life expectancies and decreasing fertility rates. In our case study on Japan we can see that the country's <a href="#" id="link2">Fertility Rate</a>, measured by the number of children born per woman in a year, is 1.3 as of 2021 (ref). This number is problematic as the OECD recongnises 2.1 children per woman as necessary to maintain a stable population, when accounting for no net migration and unchanged morality (reference)</p>
+							<p class="body-text">While the 2021 OECD average for <a href="#" id="link3">Life Expectancy</a> at birth was 80.3 years (ref), Japan recorded life expectancy at birth as 84.5 years, more than 4 years longer than the OECD average! This combination of having fewer children and living longer has left Japan with one of the oldest populations that is set to get even older</p>
+							<p class="footnote">Please explore the links above and points to the right to learn more about ageing populations around the world</p>
+						</div>
 					</div>
 					<!-- Ensure the point links are wrapped in anchor tags -->
-					<div class="col col-max-height text-left border d-flex align-items-center position-relative fade-in">
-						<img class="fade-in" height="100%" width="85%" src="outline-map-of-japan-BYB4T6.jpg" alt="Map of Japan">
-						<a href="page1.html" class="point fade-in" style="top: 30%; left: 54%;">
+					<div class="col col-max-height text-leftd-flex align-items-center position-relative fade-in">
+						<img class="fade-in" height="95%" width="95%" src="outline-map-of-japan-BYB4T6.jpg" alt="Map of Japan">
+						<a href="page1.html" class="point fade-in" id="point1" style="top: 30%; left: 60%;">
 							<div class="inner-circle"></div>
 							<div class="outer-circle"></div>
 							<div class="point-label">Population over 65</div>
 						</a>
-						<a href="page2.html" class="point fade-in" style="top: 60%; left: 50%;">
+						<a href="page2.html" class="point fade-in" id="point2" style="top: 60%; left: 63%;">
 							<div class="inner-circle"></div>
 							<div class="outer-circle"></div>
 							<div class="point-label">Fertility rate</div>
 						</a>
-						<a href="page3.html" class="point fade-in" style="top: 83%; left: 15%;">
+						<a href="page3.html" class="point fade-in" id="point3" style="top: 83%; left: 10%;">
 							<div class="inner-circle"></div>
 							<div class="outer-circle"></div>
 							<div class="point-label">Life expectancy</div>

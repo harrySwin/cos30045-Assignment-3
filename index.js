@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add event listener for mouse wheel
     window.addEventListener('wheel', scrollHandler);
-});
+})
 
 // Fade-in effect for elements
 document.addEventListener('DOMContentLoaded', function() {
@@ -87,4 +87,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run on page load and scroll
     handleScroll();
     window.addEventListener('scroll', handleScroll);
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+    function setupHoverEffect(pointId, linkId) {
+        const point = document.getElementById(pointId);
+        const link = document.getElementById(linkId);
+
+        if (point && link) {
+            link.addEventListener('mouseover', function() {
+                point.classList.add('simulate-hover');
+            });
+
+            link.addEventListener('mouseout', function() {
+                point.classList.remove('simulate-hover');
+            });
+        }
+    }
+
+    // Call the setup function for each point-link pair
+    setupHoverEffect('point1', 'link1');
+    setupHoverEffect('point2', 'link2');
+    setupHoverEffect('point3', 'link3');
+    // Add more pairs as needed
 });
+
+
+
+
+
