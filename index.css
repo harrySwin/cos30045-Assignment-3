@@ -120,17 +120,23 @@
     opacity: 1; /* Ensure the label is fully opaque */
     animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
 }
+
 /* Initial hidden state */
 .fade-in {
     opacity: 0;
-    duration: 5000;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 /* Visible state */
 .fade-in.visible {
     opacity: 1;
 }
+
+/* Faded-out state */
+.fade-in.faded-out {
+    opacity: 0;
+}
+
 /* Additional class for simulating hover effect */
 .simulate-hover .point {
     transform: scale(1.2); /* Grow the point on hover */
@@ -179,7 +185,7 @@
     opacity: 1; /* Ensure the label is fully opaque */
     animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
 }
-a:hover {
+.link:hover {
     color: red;
 }
 .key-question {
@@ -197,3 +203,103 @@ a:hover {
     margin-top: 10px; /* Space above the footnote */
     text-align: center;
 }
+.references {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reference-item {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.reference-item:last-child {
+    border-bottom: none;
+}
+
+/* Reference text styling */
+.reference-text {
+    font-size: 1rem;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+/* Footnote styling for hyperlinks */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Optional hover effect for items */
+.reference-item:hover {
+    background-color: #f1f3f5;
+    border-radius: 4px;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Define the keyframes for the hover animation */
+@keyframes hoverUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Define the keyframes for the hover animation */
+@keyframes hoverUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Reduced the hover distance */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Style for the startButton */
+#startButton {
+    animation: hoverUpDown 2s ease-in-out infinite; /* Slowed down the animation */
+    background-color: #28a745; /* Changed to green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+/* Style for the startButton when hovered */
+#startButton:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly scale up the button on hover */
+    animation: none; /* Stop the hover animation on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+
+/* Style for the startButton when focused (optional) */
+#startButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Focus shadow */
+}
+

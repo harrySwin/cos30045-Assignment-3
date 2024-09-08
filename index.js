@@ -5,8 +5,8 @@ function scrollDown() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         // Scroll down by the height of the viewport minus navbar
-        const scrollHeight = window.innerHeight - 56; // Adjusted for navbar height
-        const duration = 100;  // Duration in milliseconds
+        const scrollHeight = window.innerHeight - 56; // Adjusted for navbar height (56px)
+        const duration = 300;  // Duration in milliseconds
         const start = window.scrollY;
         const startTime = performance.now();
 
@@ -45,9 +45,10 @@ window.addEventListener('scroll', toggleButtonText);
 
 // Smooth scrolling by viewport height on mouse wheel
 document.addEventListener('DOMContentLoaded', function() {
-    const scrollAmount = window.innerHeight; // Viewport height
+    const scrollAmount = window.innerHeight - 56; // Viewport height minus navbar height (56px)
 
     function scrollHandler(event) {
+        event.preventDefault(); // Prevent default scrolling
         if (event.deltaY > 0) {
             // Scroll down
             window.scrollBy({
@@ -64,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add event listener for mouse wheel
-    window.addEventListener('wheel', scrollHandler);
-})
+    window.addEventListener('wheel', scrollHandler, { passive: false }); // `passive: false` to allow `event.preventDefault()`
+});
 
 // Fade-in effect for elements
 document.addEventListener('DOMContentLoaded', function() {
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run on page load and scroll
     handleScroll();
     window.addEventListener('scroll', handleScroll);
-})
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     function setupHoverEffect(pointId, linkId) {
