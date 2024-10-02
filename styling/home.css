@@ -1,0 +1,563 @@
+html {
+    scroll-behavior: smooth; 
+}
+
+.full-height {
+    height: calc(100vh - 56px); 
+}
+		
+.col-max-height {
+    max-height: calc(100vh - 56px - 5px);
+    overflow: auto; 
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+.body-text {
+    font-family: 'Roboto', sans-serif; 
+    color: #343a40; 
+    font-size: 0.8rem; 
+    line-height: 1.5; 
+}
+
+.title-part1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #6c757d; 
+    font-size: 1.5rem;
+}
+.title-part2 {
+    font-family: 'Playfair Display', serif;
+    color: #007bff; 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+}
+
+@keyframes swipeReveal {
+    from {
+        clip-path: inset(0 100% 0 0); 
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.point {
+    position: absolute;
+    width: 60px; /* Size for the point container */
+    height: 60px; /* Size for the point container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent element */
+    transition: transform 0.5s, background-color 0.5s; /* Slow down transition effects */
+}
+
+/* Outer circle styling */
+.outer-circle {
+    position: absolute;
+    width: 100%; /* Same as the point container */
+    height: 100%; /* Same as the point container */
+    border-radius: 50%; /* Make it circular */
+    border: 3px solid blue; /* Outer circle border color when not hovered */
+    background-color: transparent; /* Transparent background */
+    z-index: 1; /* Place outer circle behind inner circle */
+    transition: border-color 0.5s; /* Slow down border color change */
+}
+
+/* Inner circle styling */
+.inner-circle {
+    position: absolute;
+    width: 40%; /* Smaller than outer circle */
+    height: 40%; /* Smaller than outer circle */
+    border-radius: 50%; /* Make it circular */
+    border: 4px solid green; /* Inner circle border color when not hovered */
+    background-color: blue; /* Inner circle color when not hovered */
+    z-index: 2; /* Place inner circle above outer circle */
+    transition: background-color 0.5s, border-color 0.5s; /* Slow down color changes */
+}
+
+/* Hover effect for the point */
+.point:hover {
+    transform: scale(1.2); /* Grow the point on hover */
+}
+
+/* Hover effect for the outer circle */
+.point:hover .outer-circle {
+    border-color: red; /* Change outer circle border color on hover */
+}
+
+/* Hover effect for the inner circle */
+.point:hover .inner-circle {
+    background-color: red; /* Change inner circle color on hover */
+    border-color: darkred; /* Change inner circle border color on hover */
+}
+
+/* Point Label Styling */
+.point-label {
+    position: absolute;
+    background-color: blue; /* Initial color matching the point's color */
+    color: white;
+    padding: 2px 6px; /* Adjust padding for better spacing */
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat or any chosen font */
+    text-transform: uppercase; /* Ensure all text is in uppercase */
+    font-weight: 700; /* Bold weight for better visibility */
+    font-size: 14px; /* Adjust font size as needed */
+    white-space: nowrap;
+    overflow: hidden; /* Hide overflow to maintain the clipping effect */
+    transform: translateY(-50%); /* Center vertically relative to the point */
+    left: 95%;
+    top: 50%; /* Center vertically next to the point */
+    clip-path: inset(0 100% 0 0); /* Initially clip the label fully to the right */
+    transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
+    opacity: 0; /* Initially hidden */
+}
+
+/* Show label on hover */
+.point:hover .point-label {
+    display: block; /* Show label on hover */
+    background-color: red; /* Match background color with point */
+    transform: translateY(-50%) scale(1); /* Ensure label is positioned and scaled correctly */
+    clip-path: inset(0 0 0 0); /* Reveal label on hover */
+    opacity: 1; /* Ensure the label is fully opaque */
+    animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
+}
+
+/* Initial hidden state */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visible state */
+.fade-in.visible {
+    opacity: 1;
+}
+
+/* Faded-out state */
+.fade-in.faded-out {
+    opacity: 0;
+}
+
+/* Additional class for simulating hover effect */
+.simulate-hover .point {
+    transform: scale(1.2); /* Grow the point on hover */
+}
+
+.simulate-hover {
+    transform: scale(1.2); /* Grow the point on hover */
+}
+
+.simulate-hover .outer-circle {
+    border-color: red; /* Change outer circle border color on hover */
+}
+
+.simulate-hover .inner-circle {
+    background-color: red; /* Change inner circle background color on hover */
+    border-color: darkred; /* Change inner circle border color on hover */
+}
+
+/* Point Label Styling */
+.point-label {
+    position: absolute;
+    background-color: blue; /* Initial color matching the point's color */
+    color: white;
+    padding: 2px 6px; /* Adjust padding for better spacing */
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif; /* Use Montserrat or any chosen font */
+    text-transform: uppercase; /* Ensure all text is in uppercase */
+    font-weight: 700; /* Bold weight for better visibility */
+    font-size: 10px; /* Adjust font size as needed */
+    white-space: nowrap;
+    overflow: hidden; /* Hide overflow to maintain the clipping effect */
+    transform: translateY(-50%); /* Center vertically relative to the point */
+    left: 95%;
+    top: 50%; /* Center vertically next to the point */
+    clip-path: inset(0 100% 0 0); /* Initially clip the label fully to the right */
+    transition: background-color 0.3s, opacity 0.3s; /* Smooth color and opacity transition */
+    opacity: 0; /* Initially hidden */
+}
+
+/* Show label on hover */
+.simulate-hover .point-label {
+    display: block; /* Show label on hover */
+    background-color: red; /* Match background color with point */
+    transform: translateY(-50%) scale(1); /* Ensure label is positioned and scaled correctly */
+    clip-path: inset(0 0 0 0); /* Reveal label on hover */
+    opacity: 1; /* Ensure the label is fully opaque */
+    animation: swipeReveal 0.5s forwards; /* Apply swipe reveal animation */
+}
+
+.link:hover {
+    color: red;
+}
+
+.key-question {
+    font-weight: bold;
+    font-style: italic;
+    color: #007bff; /* Bright blue for emphasis */
+    font-size: 1.2rem; /* Slightly larger font size */
+}
+
+/* Footnote styling */
+.footnote {
+    font-family: 'Roboto', sans-serif; /* Simple and readable font */
+    font-size: 12px; /* Smaller size for footnotes */
+    color: #6c757d; /* Muted gray color for less prominence */
+    text-align: left;
+    margin-top: 10px; /* Space above the footnote */
+    text-align: center;
+}
+
+.references {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reference-item {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.reference-item:last-child {
+    border-bottom: none;
+}
+
+/* Reference text styling */
+.reference-text {
+    font-size: 1rem;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+/* Footnote styling for hyperlinks */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Optional hover effect for items */
+.reference-item:hover {
+    background-color: #f1f3f5;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Define the keyframes for the hover animation */
+@keyframes hoverUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Reduced the hover distance */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Style for the startButton */
+#startButton {
+    animation: hoverUpDown 2s ease-in-out infinite; /* Slowed down the animation */
+    background-color: #007bff; /* Changed to green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+/* Style for the startButton when hovered */
+#startButton:hover {
+    background-color: #0056b3; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly scale up the button on hover */
+    animation: none; /* Stop the hover animation on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow on hover */
+}
+
+/* Style for the startButton when focused (optional) */
+#startButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus shadow */
+}
+
+.expanded-info {
+    position: absolute;
+    top: 0;
+    left: 100%; /* Hide it off-screen to the right */
+    width: 200%;
+    height: 100%;
+    background-color: #e9ecef;
+    padding: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.expanded-text {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #495057;
+}
+
+/* Background image for the entire page */
+.bg-cover {
+    background-image: url("../assets/old-population.png"); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Define your red color palette */
+.card-title {
+    color: #B71C1C; /* Deep Red for titles */
+}
+
+.card-text {
+    color: #C62828; /* Slightly lighter red for card text */
+}
+
+.card-expand .card-body-expand p {
+	padding: 0.5em;
+    color: #C62828; /* Matching color for expanded text */
+}
+
+
+/* Hover Effect */
+.card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Expandable Card Styling */
+.card-expand {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 1px solid #ccc;
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+.card-title {
+	font-weight: strong;
+}
+
+.card-hover:hover .card-expand {
+    width: 220%; /* Adjust the width of the expanded card */
+}
+
+.card-expand .card-body-expand p {
+    color: #C62828; /* Matching color for expanded text */
+}
+
+/* Styling for Title Part 1 */
+.title-part3 {
+    font-size: 3rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #fff; /* White color for better contrast */
+    border-radius: 5px;
+    display: inline;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: add text shadow for more emphasis */
+}
+
+/* Styling for Title Part 2 */
+.title-part4 {
+    font-size: 3.5rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #fff; /* White color for better contrast */
+    border-radius: 5px;
+    display: inline;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional: add text shadow for more emphasis */
+}
+
+/* Optional: Adjusting the Hero Section */
+.title {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+/* SVG styling */
+.svg-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Center the SVG */
+	margin-top: 20px; /* Space between title and SVG */
+}
+
+/* SVG styling */
+svg {
+	margin-top: 0;
+	transform: scale(1); /* Default scale */
+	transform-origin: center; /* Ensure scaling is centered */
+	display: block;
+
+}
+
+.svg-title {
+	font-family: 'Montserrat', sans-serif; /* Ensure you include the font in your HTML */
+	font-size: 2.5rem; /* Adjust size as needed */
+	font-weight: bold;
+	color: #00693E;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Optional shadow for contrast */
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+
+/* Country styling */
+#countries {
+	fill: white; /* Default fill color */
+	stroke: black; /* Outline color */
+	stroke-width: 1;
+	transition: fill 0.3s; /* Smooth transition */
+}
+/* Label styling */
+.label {
+	font-size: 1rem;
+	text-anchor: middle; /* Center the text */
+	fill: black; /* Text color */
+}
+
+/* Australia specific hover effect */
+.australia {
+	fill: lightblue; /* Color for Australia */
+	cursor: pointer; /* Change cursor on hover */
+}
+
+.australia:hover {
+	fill: deepskyblue; /* Highlight color on hover */
+}
+.denmark {
+	fill: yellow; /* Color for Denmark */
+	cursor: pointer; /* Change cursor on hover */
+}
+
+.denmark:hover {
+	fill: #8B8000; /* Highlight color on hover */
+}
+.unitedkingdom {
+	fill: green;
+	cursor: pointer;
+}
+.unitedkingdom:hover {
+	fill: darkgreen;
+}
+.china {
+	fill: red;
+	cursor: pointer;
+}
+.china:hover {
+	fill:darkred;
+}
+.canada {
+	fill: violet;
+	cursor: pointer;
+}
+.canada:hover {
+	fill: darkviolet;
+}
+
+
+.references {
+	flex-grow: 1;
+	overflow-y: auto;
+
+}
+/* Hide buttons when they are not visible */
+.hidden {
+	display: none !important;
+}
+/* Styling the reference title in italics */
+.reference-title {
+	font-style: italic;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Center modal */
+    padding: 20px; /* Padding around content */
+    border: 1px solid #888; /* Border for modal */
+    width: 100%; /* Full width of modal */
+    max-width: 800px; /* Maximum width for larger screens */
+    display: flex; /* Use flexbox for layout */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.modal-text {
+    flex: 3; /* Text takes 75% of the space */
+    padding-right: 20px; /* Spacing between text and image */
+}
+
+.modal-image {
+    flex: 1; /* Image takes 25% of the space */
+    display: flex; /* Center the image */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+}
+
+.modal-image img {
+	margin-top: 15%;
+    max-width: 100%; /* Ensure image does not exceed its container */
+    max-height: 100%; /* Ensure image does not exceed its container */
+    border-radius: 4px; /* Optional: rounded corners for the image */
+}
+
+/* Style for the close button */
+#closeModal {
+    position: absolute; /* Position it at the top right corner */
+    top: 20px; /* Space from the top */
+    right: 20px; /* Space from the right */
+    background-color: #ff4757; /* Bright red background */
+    border: none; /* No border */
+    border-radius: 50%; /* Make it circular */
+    width: 30px; /* Width of the button */
+    height: 30px; /* Height of the button */
+    font-size: 15px; /* Increase font size */
+    display: flex; /* Centering text inside */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+#closeModal:hover {
+    background-color: #ff6b81; /* Lighter red on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Focus effect for accessibility */
+#closeModal:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(255, 118, 118, 0.5); /* Add a custom outline */
+}

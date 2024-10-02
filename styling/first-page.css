@@ -1,0 +1,33 @@
+.country {
+    stroke: #000;
+    stroke-width: 1;
+}
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 80px;
+    padding: 4px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+.slider {
+    margin: 20px 0; /* Add margin for the slider */
+    width: 50%; /* Make the slider take full width */
+}
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px; /* Space between color box and text */
+}
+.legend-item {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 5px; /* Space between legend items */
+}
+svg {
+    height: 75vh; /* Height relative to viewport */
+    width: 100%; /* Make SVG responsive */
+}

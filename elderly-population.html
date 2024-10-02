@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="styling/elderly-population.css">
+	<title>OECD Elderly Population Line Graph</title>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script src="javascript/elderly-population.js"></script>
+</head>
+<body>
+<!--Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+		<div class="container-fluid">
+				<div class="row w-100 align-items-center">
+						<!-- Navbar brand (left-aligned) -->
+						<div class="col text-start">
+								<a class="navbar-brand" href="home.html">COS30045 - Data Visualization</a>
+						</div>
+
+						<!-- Centered title with some styling -->
+						<div class="col text-center">
+								<span class="navbar-brand">Presented by <em>Demographica</em></span>
+						</div>
+
+						<!-- Right-aligned button container -->
+						<div class="col text-end">
+						</div>
+			<a id="scrollButton" class="btn btn-warning" href="home.html">Go Back</a>
+				</div>
+
+		</div>
+
+</nav>
+
+<div class="container mt-5">
+
+		<div class="row">
+
+			<div class="col-md-9">
+				<div class="border-primary rounded" style="border: solid;" id="chart"></div>
+			</div>
+
+			<div class="col-md-3">
+				<h4>Filtering</h4>
+				<div id="checkboxes">
+				</div>
+				<div id="selectall">
+				<button id="selectAll" class="btn btn-primary mb-2">Select All</button>
+				<button id="removeAll" class="btn btn-secondary mb-2">De-select All</button></div>
+				<div id="yearSelectors">
+					<label class="year-label">Start Year:</label>
+					<select id="startYear"></select>
+					<label class="year-label">End Year:</label>
+					<select id="endYear"></select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="tooltip" style="position: absolute; opacity: 0; pointer-events: none; font-weight: bold; font-size: 18px;"></div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+footer{
+	background-color:darkgray ;
+}
+
+.axis line {
+		stroke: teal;
+		shape-rendering: crispEdges;
+}
+
+.axis text {
+		font-family: Optima, Futura, sans-serif;
+		font-weight: bold;
+		font-size: 16px;
+		fill: teal;
+}
+.axis-label {
+		fill: black;
+		font-size: 18px;
+		font-weight: normal;
+		text-anchor: middle;
+}
+.text {
+		font-family: sans-serif;
+		font-size: 11px;
+		fill: black;
+		text-anchor: middle;
+
+}
+.line {
+		fill: none;
+		stroke: slategrey;
+
+		stroke-width: 0,5;
+}
+.area {
+		color: blue;
+		background-color: red:
+}
+.grid {
+		stroke: gray; /* Set color to gray */
+		stroke-opacity: 0.5; /* Set opacity to 50% */
+		stroke-width: 1; /* Width of the grid lines */
+}
+.toggle-button {
+		padding: 10px 20px;
+		margin: 5px;
+		color: white;
+		border: none;
+		border-radius: 25px;
+		cursor: pointer;
+		transition: opacity 0.3s;
+		opacity: 0.2;
+}
+
+
+.toggle-button.active {
+		opacity: 1;
+}
+
+#container {
+	display: flex;
+	align-items: flex-start; /* Align the items to the top */
+}
+
+#checkboxes {
+	margin-right: 20px; /* Add space between buttons and the chart */
+	display: flex;
+	flex-direction: column; /* Stack buttons vertically */
+}
+
+#chart {
+	flex-grow: 1; /* Allow the chart to take the remaining width */
+	border: solid 2px #007bff; /* Border for the SVG */
+	margin: 0 auto; /* Center the container */
+}
+
+button.toggle-button {
+	padding: 8px 16px;
+	border: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	color: black;
+}
+
+button.toggle-button.active {
+	opacity: 1; /* Active state styling */
+}
+
+button.toggle-button:not(.active) {
+	opacity: 0.25; /* Inactive state styling */
+}
+
+#tooltip {
+	position: absolute;
+	background-color: lightgray;
+	padding: 8px;
+	border-radius: 4px;
+	pointer-events: none;
+	font-size: 12px;
+}
+
+#yearSelectors {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start; /* Aligns the dropdowns to the left */
+	margin-bottom: 10px;
+}
+
+.year-label {
+	margin-right: 5px;
+	font-family: Georgia, serif;
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+}
+
+#startYear, #endYear {
+	margin-bottom: 10px;
+	padding: 5px;
+	font-size: 16px;
+	width: 150px; /* Adjust the width as necessary */
+}
+
+footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		background-color: darkgray;
+		padding: 10px 0;
+}

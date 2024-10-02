@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choropleth Map of Countries</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styling/first-page.css"> 
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="javascript/map.js"></script>
+    <script src="javascript/fertility.js"></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+            <!-- Navbar brand (left-aligned) -->
+            <div class="col text-start">
+                <a class="navbar-brand" href="home.html">COS30045 - Data Visualization</a>
+            </div>
+
+            <!-- Centered title with some styling -->
+            <div class="col text-center">
+                <span class="navbar-brand">Presented by <em>Demographica</em></span>
+            </div>
+
+            <!-- Right-aligned button container -->
+            <div class="col text-end"> 
+            </div>
+			<a id="scrollButton" class="btn btn-warning" href="home.html">Go Back</a>
+        </div>
+		
+    </div>
+	
+</nav>
+
+<div class="container mt-5">
+
+    <div class="row">
+        <!-- Map container -->
+        <div class="col-md-9">
+            <svg class="border-primary round" style="border: solid;"></svg>
+        </div>
+
+        <!-- Controls and legend -->
+        <div class="col-md-3">
+            <div class="legend">
+                <h5>Legend</h5>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #4d0000;"></div>
+                    Very Low Fertility (< 1.2)
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #FF3333;"></div>
+                    Low Fertility (1.2 - 1.8)
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #FFFF00;"></div>
+                    Replacement (2.1)
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #A0D65B;"></div>
+                    Moderate Fertility (2.2 - 3.0)
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #4CAF50;"></div>
+                    High Fertility (3.0 - 7.67)
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background-color: #004d00;"></div>
+                    Very High Fertility (> 7.67)
+                </div>
+            </div>
+
+            <!-- Year slider -->
+            <label for="yearSlider">Year:</label>
+            <input type="range" class="slider" id="yearSlider" min="1960" max="2020" value="2020" step="1">
+            <span id="yearLabel">2020</span>
+
+            <!-- Hide non-OECD checkbox -->
+            <div>
+                <input type="checkbox" id="hideMissing">
+                <label for="hideMissing">Hide non-OECD Countries</label>
+            </div>
+
+            <!-- Zoom and Pan buttons -->
+            <div class="zoom-controls mt-3">
+                <h5>Zoom & Pan Controls</h5>
+                <button id="zoomIn" class="btn btn-primary btn-sm mb-1">Zoom In</button>
+                <button id="zoomOut" class="btn btn-primary btn-sm mb-1">Zoom Out</button>
+                <button id="resetZoom" class="btn btn-secondary btn-sm mb-1">Reset Zoom</button>
+                <button id="center" class="btn btn-secondary btn-sm mb-1">Center Map</button>
+                <button id="panLeft" class="btn btn-info btn-sm mb-1">Pan Right</button>
+                <button id="panRight" class="btn btn-info btn-sm mb-1">Pan Left</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip for map interaction -->
+    <div class="tooltip" style="opacity: 0;"></div>
+</div>
+</body>
+</html>

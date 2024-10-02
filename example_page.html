@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll by Pages</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+            transition: filter 0.3s ease;
+        }
+
+        #page1 {
+            background-color: #ffcccc;
+        }
+
+        #page8 {
+            background-color: #d3d3d3;
+        }
+
+        .text-container, .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            height: 100%;
+            transition: all 0.3s ease;
+            cursor: default; /* Change cursor to default */
+            position: relative;
+            z-index: 1;
+        }
+
+        .text-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            max-width: 50%;
+            padding: 10px;
+            flex: 0 1 auto;
+            flex-direction: column;
+            min-width: 20%;
+        }
+
+        .image-container {
+            min-width: 50%;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 674px) {
+            .page {
+                flex-direction: column;
+            }
+            .text-container {
+                width: 100%;
+                height: 50%;
+                padding: 10px;
+                font-size: 70%;
+                max-width: none;
+                word-wrap: break-word;
+                white-space: normal;
+            }
+            .image-container {
+                width: 100%;
+                height: 50%;
+                padding: 10px;
+            }
+        }
+
+        @media (min-width: 675px) {
+            .page {
+                flex-direction: row;
+            }
+        }
+
+        #page2 .text-container { background-color: #ffebee; }
+        #page3 .text-container { background-color: #e3f2fd; }
+        #page4 .text-container { background-color: #fffde7; }
+        #page5 .text-container { background-color: #e0f2f1; }
+        #page6 .text-container { background-color: #fce4ec; }
+        #page7 .text-container { background-color: #f9fbe7; }
+
+        #page2 .image-container { background-color: #ffcdd2; }
+        #page3 .image-container { background-color: #bbdefb; }
+        #page4 .image-container { background-color: #fff9c4; }
+        #page5 .image-container { background-color: #b2dfdb; }
+        #page6 .image-container { background-color: #f8bbd0; }
+        #page7 .image-container { background-color: #f0f4c3; }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="page" id="page1"> 
+        <h1>Welcome to Page 1</h1>
+    </div>
+    
+    <div class="page" id="page2"> 
+        <div class="text-container">
+            <h1>Page 2</h1>
+            <p>This is the second page.</p>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        </div>
+    </div>
+    
+    <div class="page" id="page3"> 
+        <div class="text-container">
+            <h1>Page 3</h1>
+            <p>You have reached the third page. Scroll back up or down!</p>
+            <label for="yearSlider">Year:</label>
+            <input type="range" class="slider" id="yearSlider" min="1960" max="2020" value="2020" step="1">
+            <span id="yearLabel">2020</span>
+            <div class="legend">
+                <h5>Legend</h5>
+                <div class="legend-item"><div class="color-box" style="background-color: #b30000;"></div> Below Replacement</div>
+                <div class="legend-item"><div class="color-box" style="background-color: green;"></div> Replacement (2.1)</div>
+                <div class="legend-item"><div class="color-box" style="background-color: #000099;"></div> Above Replacement</div>
+            </div>
+        </div>
+        <div class="image-container">
+            <svg id="map" width="600" height="400"></svg> <!-- Make sure to adjust the width and height as needed -->
+        </div>
+    </div>
+    
+    <div class="page" id="page4"> 
+        <div class="text-container">
+            <h1>Page 4</h1>
+            <p>This is the fourth page. Keep scrolling to explore more.</p>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        </div>
+    </div>
+
+    <div class="page" id="page5"> 
+        <div class="text-container">
+            <h1>Page 5</h1>
+            <p>Welcome to the fifth page. You're doing great!</p>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        </div>
+    </div>
+
+    <div class="page" id="page6"> 
+        <div class="text-container">
+            <h1>Page 6</h1>
+            <p>This is the sixth page. Almost there!</p>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        </div>
+    </div>
+
+    <div class="page" id="page7"> 
+        <div class="text-container">
+            <h1>Page 7</h1>
+            <p>Here is the seventh page. Just one more to go!</p>
+        </div>
+        <div class="image-container">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        </div>
+    </div>
+
+    <div class="page" id="page8"> 
+        <h1>Thanks for visiting Page 8</h1>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 0;
+        let isScrolling = false;
+
+        function scrollToPage(pageIndex) {
+            if (pageIndex >= 0 && pageIndex < pages.length) {
+                window.scrollTo({
+                    top: window.innerHeight * pageIndex,
+                    behavior: 'smooth'
+                });
+                currentPage = pageIndex;
+            }
+        }
+
+        function handleScroll(delta) {
+            if (isScrolling) return;
+            isScrolling = true;
+
+            if (delta > 0 && currentPage < pages.length - 1) {
+                scrollToPage(currentPage + 1);
+            } else if (delta < 0 && currentPage > 0) {
+                scrollToPage(currentPage - 1);
+            }
+
+            setTimeout(() => {
+                isScrolling = false;
+            }, 800);
+        }
+
+        window.addEventListener('wheel', function(event) {
+            event.preventDefault();
+            handleScroll(event.deltaY);
+        });
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowDown' || event.key === 'PageDown') {
+                if (currentPage < pages.length - 1) {
+                    scrollToPage(currentPage + 1);
+                    event.preventDefault();
+                }
+            } else if (event.key === 'ArrowUp' || event.key === 'PageUp') {
+                if (currentPage > 0) {
+                    scrollToPage(currentPage - 1);
+                    event.preventDefault();
+                }
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            scrollToPage(currentPage);
+        });
+    </script>
+</body>
+</html>
